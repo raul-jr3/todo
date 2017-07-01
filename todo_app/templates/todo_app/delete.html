@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+	delete
+{% endblock %}
+
+{% block content %}
+	<br><br>
+	<h3>Todo</h3>
+	<br>
+	<p>The post "{{ todo.title }}" was successfully deleted. <a href="{% url "todo:home" %}">Go back home?</a></p>
+{% endblock %}

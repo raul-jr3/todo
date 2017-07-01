@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block title %}
+	success
+{% endblock %}
+
+{% block content %}
+	<br><br>
+	<h3>Todo</h3>
+	<br>
+	<p>Your todo has been successfully added. <a href="{% url "todo:home" %}">See todos?</a></p>
+{% endblock %}

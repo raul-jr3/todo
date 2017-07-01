@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	{{ todo.title }}
+{% endblock %}
+
+{% block content %}
+	<br><br>
+	<h3>Todo</h3><br>
+	{% if todo %}
+		<h4>{{ todo.title }}</h4>
+		<b>priority : {{ todo.priority }}</b>
+		<p>{{ todo.description|linebreaks }}</p>
+		<a style="color:red;" href="{% url "todo:delete" todo.pk %}">delete?</a><br>
+	{% else %}
+		<p>There's something wrong!</p>
+	{% endif %}
+	<a href="{% url "todo:home" %}">go back home?</a><hr>
+{% endblock %}

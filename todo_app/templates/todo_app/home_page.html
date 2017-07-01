@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	home
+{% endblock %}
+
+{% block content %}
+	<br>
+	<h2>Todos: </h2><p><a href="{% url "todo:post" %}">add a todo?</a></p><br>
+	{% if todos %}
+		{% for todo in todos %}
+			<h5><li><a href="{{ todo.get_absolute_url }}">{{ todo.title }}</a></li></h5>
+			priority : <b>{{ todo.priority }}</b><br> 
+			<p>{{ todo.description|truncatewords:10 }}</p><hr>
+		{% endfor %}
+	{% else %}
+		<p>No todos yet. <a href="{% url "todo:post" %}">Start adding?</a></p>
+	{% endif %}
+{% endblock %}

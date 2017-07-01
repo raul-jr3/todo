@@ -1,0 +1,9 @@
+{% if todos %}
+	<ul>
+		{% for todo in todos %}
+			<li><a href="{{ todo.get_absolute_url }}">{{ todo.title }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>None</p>
+{% endif %}

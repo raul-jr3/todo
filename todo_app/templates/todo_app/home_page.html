@@ -8,7 +8,7 @@
 
 {% block content %}
 	<br>
-	<h2>Todos: </h2><p><a href="{% url "todo:post" %}">add a todo?</a></p><br>
+	<h2>Todos: </h2><p>
 	{% if todos %}
 		{% for todo in todos %}
 			<h5><li><a href="{{ todo.get_absolute_url }}">{{ todo.title }}</a></li></h5>

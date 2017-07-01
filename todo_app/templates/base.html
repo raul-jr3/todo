@@ -1,5 +1,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
+{% load blog_tags %}
 
 <!DOCTYPE html>
 <html>
@@ -8,11 +9,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{% block title %}{% endblock %}</title>
 	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "todo_app/styles.css" %}">
 </head>
 <body>
 	<div class="container">
-		{% block content %}
-		{% endblock %}
+		<div class="row">
+			<div class="col-md-8">
+				{% block content %}
+				{% endblock %}
+			</div>
+			<div class="col-md-4">
+				{% block side %}
+					<br>
+					<h3>Additions:</h3>
+					<p><a href="{% url "todo:post" %}">add a todo?</a></p>
+					<p>High priority todos:</p>
+					<p id="list">{% high_priority 3 %}</p>	
+					<p>Medium priority todos:</p>
+					<p id="list">{% medium_priority 3 %}</p>
+					<p>Low priority todos:</p>
+					<p id="list">{% low_priority 3 %}</p>
+				{% endblock %}
+			</div>			
+		</div>
 	</div>
 </body>
 </html>

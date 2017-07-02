@@ -29,6 +29,21 @@ def post_todo(request):
 	template = 'todo_app/post_todo.html'
 	return render(request, template, context)
 
+def edit_todo(request, todo_id):
+	todo = get_object_or_404(Todo, pk = todo_id)
+	if request.method == 'POST':
+		form = TodoForm(data = request.POST, instance = todo, files = request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('todo:detail', todo.pk)
+		else:
+			return HttpResponse('Invalid submission')
+	else:
+		form = TodoForm(instance = todo)
+	context = {'todo':todo, 'form':form}
+	template = 'todo_app/post_todo.html'
+	return render(request, template, context)
+
 def delete_todo(request, todo_id):
 	todo = get_object_or_404(Todo, pk = todo_id)
 	todo.delete()

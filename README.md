@@ -3,8 +3,6 @@
 
 <img src="screened.png" width="700" height="400">
 
-<a href="http://rahul03.pythonanywhere.com/">demo</a>
-
 <h1>Requirements:</h1>
 <ul>
   <li><b>Django 1.11.3</b></li>

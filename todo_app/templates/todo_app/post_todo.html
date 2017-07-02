@@ -13,8 +13,8 @@
 	<p><a href="{% url "todo:home" %}">go back home?</a></p>
 	<br>
 	<div class="row">
-	<div class="col-md-4 offset-md-4">
-	<form action="." method="POST">
+	<div class="col-xs-4 offset-xs-4">
+	<form action="." method="POST", enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form|crispy }}
 		<button class="btn btn-primary btn-block">add</button>

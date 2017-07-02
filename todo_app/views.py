@@ -17,7 +17,7 @@ def todo_detail(request, todo_id):
 
 def post_todo(request):
 	if request.method == 'POST':
-		form = TodoForm(data = request.POST)
+		form = TodoForm(data = request.POST, files = request.FILES)
 		if form.is_valid():
 			form.save()
 			return render(request, 'todo_app/posted.html')

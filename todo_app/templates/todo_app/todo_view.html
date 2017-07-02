@@ -14,6 +14,7 @@
 		<h4>{{ todo.title }}</h4>
 		<b>priority : {{ todo.priority }}</b>
 		<p>{{ todo.description|linebreaks }}</p>
+		<img src="{% if todo.photo %}{{ todo.photo.url }}{% endif %}" width="250" height="250"><br><br>
 		<a style="color:red;" href="{% url "todo:delete" todo.pk %}">delete?</a><br>
 	{% else %}
 		<p>There's something wrong!</p>

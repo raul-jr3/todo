@@ -18,6 +18,7 @@
 				{% block content %}
 				{% endblock %}
 			</div>
+			{% if request.user.is_authenticated %}
 			<div class="col-md-4">
 				{% block side %}
 					<br>
@@ -30,7 +31,8 @@
 					<p>Low priority todos:</p>
 					<p id="list">{% low_priority 3 %}</p>
 				{% endblock %}
-			</div>			
+			</div>
+			{% endif %}			
 		</div>
 	</div>
 </body>

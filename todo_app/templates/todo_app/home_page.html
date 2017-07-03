@@ -8,7 +8,12 @@
 
 {% block content %}
 	<br>
-	<h2>Todos: </h2><p>
+	<h2>Todos: </h2>
+	{% if request.user.is_authenticated %}
+		<p><a href="{% url "account:logout-then-login" %}">logout</a></p>
+	{% else %}
+		<p><a href="{% url "account:login" %}"></a></p>
+	{% endif %}
 	{% if todos %}
 		{% for todo in todos %}
 			<h5><li><a href="{{ todo.get_absolute_url }}">{{ todo.title }}</a></li></h5>

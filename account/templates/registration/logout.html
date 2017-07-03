@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+	logout
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-12">
+			<br><br>
+			<h3>Todo</h3><br>
+			<p>You've been successfully logged out.</p>
+			<p><a href="{% url "account:login" %}">login </a>again?</p>
+		</div>
+	</div>
+{% endblock %}
